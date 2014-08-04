@@ -88,6 +88,8 @@ function Lexer(source) {
     lines = lines
       .replace(/\r\n/g, "\n")
       .replace(/\r/g, "\n")
+      //don't handle C preprocessor directives yet:
+      .replace(/^\s*#/gm, "//")
       .split("\n");
   }
 
